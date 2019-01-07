@@ -1,0 +1,5 @@
+$my-theme-primary: mat-palette($mat-green, 800, 300, A200); // 800 default, 300 lighter, A200 darker
+$my-theme-accent: mat-palette($mat-yellow);
+$my-theme-warn: mat-palette($mat-red);
+
+$my-theme-1: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);

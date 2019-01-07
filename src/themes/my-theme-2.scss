@@ -1,0 +1,5 @@
+$my-theme-2-primary: mat-palette($mat-pink);
+$my-theme-2-accent: mat-palette($mat-blue);
+$my-theme-2-warn: mat-palette($mat-orange);
+
+$my-theme-2: mat-dark-theme($my-theme-2-primary, $my-theme-2-accent, $my-theme-2-warn);
