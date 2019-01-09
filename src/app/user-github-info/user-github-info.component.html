@@ -1,6 +1,20 @@
-<div fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
-  <mat-card>Simple Card Example 1</mat-card>
-  <mat-card>Simple Card Example 2</mat-card>
-  <mat-card>Simple Card Example 3</mat-card>
-  <mat-card>Simple Card Example 4</mat-card>
+<div fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutGap="20px" fxLayoutAlign="start">
+  <mat-card *ngFor="let repo of userRepos | paginate: { itemsPerPage: 6, currentPage: p }" fxFlex="30%" class="margin-bottom-20">
+    <mat-card-title>
+      <span>{{ repo.name }}</span>
+    </mat-card-title>
+    <mat-card-content class="margin-20" fxLayout="column">
+      <span>Fork: {{repo.fork}}</span>
+      <span>Languages: {{ repo.language }}</span>
+      <span>Created Date: {{ repo.created_at | date }}</span>
+      <span>Last Update Date: {{ repo.updated_at | date }}</span>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center end">
+      <button mat-raised-button color="accent" (click) = "seeFullRepoModal(repo)" class="font-size-fixed-14">See Full Info</button>
+    </mat-card-actions>
+    <mat-card-footer class="padding-5" fxLayoutAlign="end center">
+      Size: {{repo.size}}
+    </mat-card-footer>
+  </mat-card>
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
