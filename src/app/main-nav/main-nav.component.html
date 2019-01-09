@@ -5,36 +5,36 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
       <mat-toolbar>Menu</mat-toolbar>
       <mat-nav-list>
-        <div fxLayout="row" fxLayoutAlign="space-around center" (click)="ChangeSidebarNestedStatus('dashboard')" class="cur-pointer">
-          <a mat-list-item href="#">
+        <div fxLayout="row" fxLayoutAlign="space-between center" (click)="ChangeSidebarNestedStatus('dashboard')" class="cur-pointer margin-left-20">
+          <p>
             <span>Dashboard</span>
-          </a>
-          <mat-icon *ngIf="!isDashboardNested" class="margin-left-70">keyboard_arrow_down</mat-icon>
-          <mat-icon *ngIf="isDashboardNested" class="margin-left-70">keyboard_arrow_up</mat-icon>
+          </p>
+          <mat-icon *ngIf="!isDashboardNested">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="isDashboardNested">keyboard_arrow_up</mat-icon>
         </div>
         <div *ngIf="isDashboardNested" class="margin-left-20">
           <a mat-list-item href="#">Dash-1</a>
           <a mat-list-item href="#">Dash-2</a>
           <a mat-list-item href="#">Dash-3</a>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-around center" (click)="ChangeSidebarNestedStatus('media')" class="cur-pointer">
-          <a mat-list-item href="#">
+        <div fxLayout="row" fxLayoutAlign="space-between center" (click)="ChangeSidebarNestedStatus('media')" class="cur-pointer margin-left-20">
+          <p>
             <span>Media</span>
-          </a>
-          <mat-icon *ngIf="!isMediaNested" class="margin-left-70">keyboard_arrow_down</mat-icon>
-          <mat-icon *ngIf="isMediaNested" class="margin-left-70">keyboard_arrow_up</mat-icon>
+          </p>
+          <mat-icon *ngIf="!isMediaNested">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="isMediaNested">keyboard_arrow_up</mat-icon>
         </div>
         <div *ngIf="isMediaNested" class="margin-left-20">
           <a mat-list-item href="#">Media-1</a>
           <a mat-list-item href="#">Media-2</a>
           <a mat-list-item href="#">Media-3</a>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-around center" (click)="ChangeSidebarNestedStatus('friends')" class="cur-pointer">
-          <a mat-list-item href="#">
+        <div fxLayout="row" fxLayoutAlign="space-between center" (click)="ChangeSidebarNestedStatus('friends')" class="cur-pointer margin-left-20">
+          <p>
             <span>Friends</span>
-          </a>
-          <mat-icon *ngIf="!isFriendsNested" class="margin-left-70">keyboard_arrow_down</mat-icon>
-          <mat-icon *ngIf="isFriendsNested" class="margin-left-70">keyboard_arrow_up</mat-icon>
+          </p>
+          <mat-icon *ngIf="!isFriendsNested">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="isFriendsNested">keyboard_arrow_up</mat-icon>
         </div>
         <div *ngIf="isFriendsNested" class="margin-left-20">
           <a mat-list-item href="#">Friend-1</a>

@@ -5,11 +5,13 @@ import { MatCardModule, MatButtonModule, MatSelectModule, MatToolbarModule, MatS
 import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { BodyComponent } from './body/body.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UserGithubInfoComponent } from './user-github-info/user-github-info.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { UserGithubInfoComponent } from './user-github-info/user-github-info.com
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
