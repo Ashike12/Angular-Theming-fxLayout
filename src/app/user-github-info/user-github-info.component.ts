@@ -17,11 +17,11 @@ export class UserGithubInfoComponent implements OnInit {
     private githubService: UserGithubInfoService
   ) { }
   ngOnInit() {
-    this.getGithubInfo();
+    //this.getGithubInfo();
   }
 
-  getGithubInfo() {
-    this.githubService.GithubUserInfo(this.defaultUser)
+  getGithubInfo(userName) {
+    this.githubService.GithubUserInfo(userName)
       .subscribe(data => {
         // this.userInfo["Name"] = data.login; 
         // this.userInfo["ReposCount"] = data.public_repos;
@@ -31,7 +31,7 @@ export class UserGithubInfoComponent implements OnInit {
         // this.userInfo["LastUpdatedAt"] = new Date(data.updated_at);
         this.userInfo = data;
       });
-    this.githubService.GithubUserRepos(this.defaultUser)
+    this.githubService.GithubUserRepos(userName)
       .subscribe(data => {
         this.userRepos = data;
       });
