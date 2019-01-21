@@ -12,6 +12,7 @@ export class UserGithubInfoComponent implements OnInit {
   userInfo: Object = {};
   userRepos: Object[] = [];
   defaultUser: string = "Ashike12";
+  isUserAvailable: boolean = true;
 
   constructor(
     private githubService: UserGithubInfoService
@@ -30,13 +31,26 @@ export class UserGithubInfoComponent implements OnInit {
         // this.userInfo["CreatedAt"] = new Date(data.created_at);
         // this.userInfo["LastUpdatedAt"] = new Date(data.updated_at);
         this.userInfo = data;
-      });
-    this.githubService.GithubUserRepos(userName)
-      .subscribe(data => {
-        this.userRepos = data;
+        this.githubService.GithubUserRepos(userName)
+          .subscribe(data => {
+            if (_.isArray(data)) {
+              this.userRepos = [];
+              if (data.length > 0) {
+                this.userRepos = data;
+              } else {
+                this.userRepos.push({
+                  "name": "No repo is found for user: " + userName
+                })
+              }
+            }
+          });
+      }, error => {
+        if (error) {
+          this.isUserAvailable = false;
+        }
       });
   }
-  seeFullRepoModal(repo){
+  seeFullRepoModal(repo) {
     console.log(repo);
   }
 

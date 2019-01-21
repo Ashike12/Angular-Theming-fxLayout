@@ -13,19 +13,22 @@
     <mat-card-title>
       <span>{{ repo.name }}</span>
     </mat-card-title>
-    <mat-card-content class="margin-20" fxLayout="column">
-      <span>Fork: {{repo.fork}}</span>
-      <span>Languages: {{ repo.language }}</span>
-      <span>Created Date: {{ repo.created_at | date }}</span>
-      <span>Last Update Date: {{ repo.updated_at | date }}</span>
-    </mat-card-content>
-    <mat-card-actions fxLayoutAlign="center end">
-      <button mat-raised-button color="accent" (click)="seeFullRepoModal(repo)" class="font-size-fixed-14">See Full
-        Info</button>
-    </mat-card-actions>
-    <mat-card-footer class="padding-5" fxLayoutAlign="end center">
-      Size: {{repo.size}}
-    </mat-card-footer>
+    <div *ngIf="repo.created_at">
+      <mat-card-content class="margin-20" fxLayout="column">
+        <span>Fork: {{repo.fork}}</span>
+        <span>Languages: {{ repo.language }}</span>
+        <span>Created Date: {{ repo.created_at | date }}</span>
+        <span>Last Update Date: {{ repo.updated_at | date }}</span>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center end">
+        <button mat-raised-button color="accent" (click)="seeFullRepoModal(repo)" class="font-size-fixed-14">See Full
+          Info</button>
+      </mat-card-actions>
+      <mat-card-footer class="padding-5" fxLayoutAlign="end center">
+        Size: {{repo.size}}
+      </mat-card-footer>
+    </div>
   </mat-card>
 </div>
+
 <pagination-controls (pageChange)="p = $event"></pagination-controls>

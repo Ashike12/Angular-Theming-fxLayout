@@ -37,9 +37,9 @@
           <mat-icon *ngIf="isFriendsNested">keyboard_arrow_up</mat-icon>
         </div>
         <div *ngIf="isFriendsNested" class="margin-left-20">
-          <a mat-list-item href="#">Friend-1</a>
-          <a mat-list-item href="#">Friend-2</a>
-          <a mat-list-item href="#">Friend-3</a>
+          <a mat-list-item routerLink="/my-friends" routerLinkActive="active">My frinds</a>
+          <a mat-list-item routerLink="/recently-added" routerLinkActive="active">Recently added</a>
+          <a mat-list-item routerLink="/add-friends" routerLinkActive="active">Add Friends</a>
         </div>
       </mat-nav-list>
     </mat-sidenav>
